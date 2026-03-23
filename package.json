@@ -1,11 +1,11 @@
 {
-  "name": "trydionel.timer",
+  "name": "aha-develop.timer",
   "description": "Timer",
-  "version": "0.0.1",
-  "author": "trydionel",
+  "version": "1.0.0",
+  "author": "Aha! (support@aha.io)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/trydionel/aha-timer-extension.git"
+    "url": "https://github.com/aha-develop/aha-timer-extension.git"
   },
   "license": "MIT",
   "devDependencies": {
@@ -16,10 +16,11 @@
       "views": {
         "timer": {
           "title": "Timer",
-          "entryPoint": "src/views/timer.js",
+          "entryPoint": "src/views/timer.tsx",
           "host": "attribute",
           "recordTypes": [
-            "Feature"
+            "Feature",
+            "Requirement"
           ]
         }
       }

@@ -1,11 +1,12 @@
-# Timer
-  
-Let Aha! manage your time tracking data. This extension allows you to start a timer for any record you're working on. The time will be logged to the record when the timer is stopped.
+# aha-develop.timer
+
+This is an extension for Aha! Develop providing a simple timer for any record you're working on. The elapsed time will then be logged to the record
+when the timer is stopped.
 
 It provides these contributions:
 
-* Timer field: Start and stop the timer for a record
-* Global timer bar: See all active timers
+* `Timer field`: Start and stop the timer for a record
+* `Global timer bar`: See all active timers
 
 ## Screenshot
 
@@ -15,10 +16,7 @@ It provides these contributions:
 
 **Note: In order to install an extension into your Aha! Develop account, you must be an account administrator.**
 
-<!-- TODO: Fill in a link to your built extension package
-Install the Timer extension by clicking [here](https://secure.aha.io/settings/account/extensions/install?url=). -->
-
-This extension is not quite ready yet. Grab the development version by following the instructions below.
+Install the Timer extension by clicking [here](https://secure.aha.io/settings/account/extensions/install?url=https%3A%2F%2Fsecure.aha.io%2Fextensions%2Faha-develop.timer.gz)
 
 ## Working on the extension
 
@@ -30,9 +28,8 @@ npm install -g aha-cli
 
 Clone the repo:
 
-TODO: Add the repository URL here
 ```sh
-git clone ...
+git clone https://github.com/aha-develop/aha-timer-extension.git
 ```
 
 **Note: In order to install an extension into your Aha! Develop account, you must be an account administrator.**
