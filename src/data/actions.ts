@@ -1,7 +1,7 @@
 import { state } from './state';
 import { timestampToDuration } from './util';
 
-const IDENTIFIER = 'aha-develop.timer';
+export const IDENTIFIER = 'aha-develop.timer';
 
 const ahaFetch = (path: RequestInfo, options: RequestInit = {}) => {
   const { headers, ...rest } = options;

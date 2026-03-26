@@ -1,5 +1,6 @@
+/** @jsx jsx */
 import React, { useEffect } from 'react';
-import { css } from '@emotion/react';
+import { jsx, css } from '@emotion/react';
 import { Timer } from '../components/Timer';
 import { useSnapshot } from 'valtio';
 import { loadTimers } from '../data/actions';
