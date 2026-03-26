@@ -1,18 +1,30 @@
+/** @jsx jsx */
 import React, { useEffect, useState } from 'react';
-import { css } from '@emotion/react';
+import { jsx, css } from '@emotion/react';
 import { ElapsedTime } from './ElapsedTime';
-import { stopTimer } from '../data/actions';
+import { stopTimer, IDENTIFIER } from '../data/actions';
 
 export const Timer = ({ recordId, recordType, startTime }) => {
   const [data, setData] = useState<Aha.Feature | Aha.Requirement>(null);
+  const [loading, setLoading] = useState(true);
 
   const loadRecord = async () => {
     const data = await aha.models[recordType]
       .select('id', 'name', 'referenceNum', 'path')
       .merge({ release: aha.models.Release.select('id', 'capacityUnits') })
-      .find(recordId);
+      .findBy({ id: recordId });
 
-    setData(data);
+    if (data) {
+      setData(data);
+    } else {
+      // Clear the extension field if the record can't be found - the user lost access to it
+      aha.user.clearExtensionField(
+        IDENTIFIER,
+        `timer:${recordId}:${recordType}`
+      );
+    }
+
+    setLoading(false);
   };
 
   const onStop = e => {
@@ -25,8 +37,12 @@ export const Timer = ({ recordId, recordType, startTime }) => {
     loadRecord();
   }, [recordId, recordType]);
 
-  if (!data) {
+  if (loading) {
     return <aha-spinner size='18px' stroke='2px' />;
+  }
+
+  if (!data) {
+    return null;
   }
 
   return (
@@ -34,7 +50,6 @@ export const Timer = ({ recordId, recordType, startTime }) => {
       className='card card--unstyled'
       css={css`
         background-color: var(--theme-primary-background);
-        box-shadow: var(--theme-shadow-deep);
         pointer-events: all;
       `}
     >
