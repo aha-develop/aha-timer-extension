@@ -32,9 +32,6 @@ export const TimerContainer = ({ state }) => {
 
   useEffect(() => {
     loadTimers();
-
-    const pid = setInterval(loadTimers, 60 * 1000); // refresh timers regularly to support people using multiple tab
-    return () => clearInterval(pid);
   }, []);
 
   return (
